@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "music-header": "/components/music-header/music-header",
+    "van-icon": "@vant/weapp/icon/index"
+  }
+}

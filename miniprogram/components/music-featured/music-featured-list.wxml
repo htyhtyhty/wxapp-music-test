@@ -1,0 +1,6 @@
+<music-header headerTitle="热门歌单"/>
+<scroll-view class="featured-list-wrap" style="width: {{screenWidth}}px;" scroll-x>
+  <block class="featured-list-content"  wx:for="{{featuredMusicList}}">
+    <music-featured-item class="music-featured-item" featuredItemData="{{item}}" />
+  </block>
+</scroll-view>

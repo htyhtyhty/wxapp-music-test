@@ -1,0 +1,3 @@
+<view>
+  <video src="{{videoUrl}}" class="detail-video" danmu-list="{{barrageList}}" referrer-policy="origin"/>
+</view>

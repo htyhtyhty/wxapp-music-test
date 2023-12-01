@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "music-list-item": "/components/music-list/music-list-item/music-list-item",
+    "music-header": "/components/music-header/music-header"
+  }
+}

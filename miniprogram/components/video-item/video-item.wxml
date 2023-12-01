@@ -1,0 +1,14 @@
+<wxs module="format" src="../../utils/format.wxs"></wxs>
+<view class="video-item-wrap">
+<view class="video-item-cover-content" bindtap="onJumpToVideo">
+  <image class="video-item-cover" src="{{itemData.cover}}" mode="widthFix"></image>
+  <view class="video-item-info">
+    <view class="video-item-playCount">{{format.formatPlayCount(itemData.playCount)}}</view>
+    <view class="video-item-duration">{{format.formatVideoDuration(itemData.mv.videos[1].duration)}}</view>
+  </view>
+</view>
+<view class="video-item-name-content">
+  <view class="video-item-name">{{itemData.name}}</view>
+  <view class="video-item-singerName">{{itemData.artistName}}</view>
+</view>
+</view>

@@ -1,0 +1,35 @@
+.music-item-wrap {
+  display: flex;
+  justify-content: space-between;
+  // padding-bottom: 20rpx;
+  .music-item-info {
+    display: flex;
+    color: rgb(173, 169, 169);
+    line-height: 12px;
+    .music-item-author {
+      font-size: 12px;
+    }
+    .music-item-hx {
+      padding: 0 6px;
+    }
+    .music-item-name {
+      font-size: 14px;
+    }
+  }
+}
+.music-rank-cover {
+  width: 100px;
+}
+.music-rank-info {
+  box-sizing: border-box;
+  height: 100px;
+  padding: 10px 10px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(248, 239, 239);
+}
+.music-rank-title {
+  // padding-bottom: 6px;
+}

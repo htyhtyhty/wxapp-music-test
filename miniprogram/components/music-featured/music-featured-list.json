@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "music-header": "/components/music-header/music-header",
+    "music-featured-item": "/components/music-featured/music-featured-item/music-featured-item"
+  }
+}

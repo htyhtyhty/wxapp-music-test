@@ -1,0 +1,4 @@
+<view class="featured-item-content-wrap">
+  <image class="featured-item-cover" src="{{featuredItemData.coverImgUrl}}" mode="widthFix" />
+  <view class="featured-item-dec">{{featuredItemData.name}}</view>
+</view>

@@ -1,0 +1,16 @@
+.featured-item-content-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 180rpx;
+  margin-right: 20px;
+  .featured-item-cover {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+  }
+  .featured-item-dec {
+    font-size: 12px;
+    white-space: normal;
+    color: rgb(173, 169, 169);
+  }
+}

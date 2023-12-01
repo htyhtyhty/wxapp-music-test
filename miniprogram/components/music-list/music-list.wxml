@@ -1,0 +1,5 @@
+<music-header headerTitle="巅峰榜"/>
+<music-list-item class="music-rank-item" rankMusicList="{{hotMusicList}}" />
+<music-list-item class="music-rank-item" rankMusicList="{{peakMusicList}}" />
+<music-list-item class="music-rank-item" rankMusicList="{{soarMusicList}}" />
+<music-list-item class="music-rank-item" rankMusicList="{{originalMusicList}}" />

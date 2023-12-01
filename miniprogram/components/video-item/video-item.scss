@@ -1,0 +1,27 @@
+/* components/video-item/video-item.wxss */
+// 设置页面的高度为100%
+page {
+  height: 100vh;
+}
+.video-item-wrap {
+  width: 100%;
+  .video-item-cover-content {
+    position: relative;
+    .video-item-info {
+      position: absolute;
+      left: 0;
+      bottom: 10rpx;
+      color: #ccc;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      .video-item-playCount {
+      }
+    }
+  }
+  
+}
+.video-item-cover {
+  width: 100%;
+  border-radius: 5px;
+}

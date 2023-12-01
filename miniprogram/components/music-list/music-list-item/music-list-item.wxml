@@ -1,0 +1,26 @@
+<wxs module="slice">
+  function sliceRankData(rankListData) {
+    if (typeof rankListData.tracks === 'object' && rankListData.tracks.length > 0) {
+      return rankListData.tracks.slice(0, 3);
+    };
+    return [];
+  }
+  module.exports = {
+    sliceRankData: sliceRankData
+  }
+</wxs>
+<image class="music-rank-cover" src="{{rankMusicList.coverImgUrl}}" mode="widthFix" />
+<view class="music-rank-info" >
+<view class="music-rank-title">
+  {{rankMusicList.name}}
+</view>
+<block wx:for="{{slice.sliceRankData(rankMusicList)}}" wx:key="id">
+  <view class="music-item-wrap">
+    <view class="music-item-info">
+      <view class="music-item-name">{{item.name}}</view>
+      <view class="music-item-hx">-</view>
+      <view class="music-item-author">{{item.ar[0].name}}</view>
+    </view>
+  </view>
+</block>
+</view>

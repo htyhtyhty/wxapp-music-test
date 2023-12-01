@@ -1,27 +1,17 @@
 {
   "pages": [
-    "pages/favor/favor",
-    "pages/index/index",
-    "pages/link/link",
-    "pages/order/order",
-    "pages/about/about"
+    "pages/main-music/main-music",
+    "pages/main-video/main-video",
+    "pages/detail-video/detail-video",
+    "pages/detail-search/detail-search",
+    "pages/more-music/more-music"
   ],
-  "usingComponents": {
-    "section-info": "/components/section-info/section-info"
-  },
-  "permission": {
-    "scope.userLocation": {
-      "desc": "需要获取您的位置信息"
-    }
-  }, 
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#368",
-    "navigationBarTitleText": "RunE",
+    "navigationBarTitleText": "推荐音乐",
     "navigationBarTextStyle": "white"
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json",
   "tabBar": {
     "color": "#888",
     "selectedColor": "#368",
@@ -30,21 +20,23 @@
     "borderStyle": "black",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "首页"
+        "pagePath": "pages/main-music/main-music",
+        "text": "音乐"
       },
       {
-        "pagePath": "pages/favor/favor",
-        "text": "喜欢"
-      },
-      {
-        "pagePath": "pages/about/about",
-        "text": "我的"
-      },
-      {
-        "pagePath": "pages/order/order",
-        "text": "订单"
+        "pagePath": "pages/main-video/main-video",
+        "text": "视频"
       }
     ]
-  }  
+  },
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

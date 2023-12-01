@@ -1,0 +1,9 @@
+<view class="header-wrap">
+  <view class="header-title">
+    {{headerTitle}}
+  </view>
+  <view class="header-more" bindtap="onMoreClick">
+    更多
+    <van-icon class="header-arrow" name="arrow" />
+  </view>
+</view>

@@ -1,6 +1,47 @@
-function formatPrice(price) {
-  return '$' + price;
+function zeroPadding (value) {
+  return value.toString()[1] ? value : '0' + value;
+}
+function formatVideoDuration(duration) {
+  var hour = '', second = '', minute = ''
+  if (typeof duration === 'number') {
+    if (duration < 1000) {
+      return '00:00'
+    }
+    formatSecond = duration / 1000;
+    if (formatSecond >= 3600) {
+      hour = zeroPadding(~~(formatSecond / 3600 ));
+      minute = zeroPadding(~~((formatSecond % 3600 )/ 60));
+      second = zeroPadding(~~(formatSecond % 3600 % 60));
+      return minute + ':' + second;
+    }
+    if (formatSecond >= 60) {
+      hour = '00'
+      minute = zeroPadding(~~(formatSecond / 60)); 
+      second = zeroPadding(~~(formatSecond % 60)); 
+      return minute + ':' + second;
+    }
+    if (formatSecond >= 1) {
+      second = zeroPadding(~~formatSecond); 
+      return '00:' + second;
+    }
+  }
+}
+
+function formatPlayCount (playCount) {
+  var integer, decimal = '';
+  if (playCount > 100000000) {
+    integer = ~~(playCount / 100000000);
+    decimal = (playCount % 100000000).toString()[0];
+    return integer + '.' + decimal + '亿';
+  }
+  if (playCount > 10000) {
+    integer = ~~(playCount / 10000);
+    decimal = (playCount % 10000).toString()[0];
+    return integer + '.' + decimal + '万';
+  }
+  return playCount
 }
 module.exports = {
-  formatPrice: formatPrice,
+  formatVideoDuration: formatVideoDuration,
+  formatPlayCount: formatPlayCount
 }

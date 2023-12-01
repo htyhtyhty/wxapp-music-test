@@ -1,5 +1,0 @@
-<block wx:for="{{tabsList}}" wx:key="*this" wx:for-item="tab">
-  <view class="{{selectedKey === index ? 'active': ' '}}" bindtap="clickChangeTab" data-selectedKey="{{index}}">
-    {{tab}}
-  </view>
-</block>

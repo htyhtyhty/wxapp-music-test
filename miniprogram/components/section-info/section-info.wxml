@@ -1,7 +1,0 @@
-<view class="" hover-class="none" hover-stop-propagation="false">
-  <view bindtap="onClickPass">{{title}}</view>
-  <view class="info">{{content}}</view>
-  <view class="" hover-class="none" hover-stop-propagation="false">
-    {{counter}}
-  </view>
-</view>

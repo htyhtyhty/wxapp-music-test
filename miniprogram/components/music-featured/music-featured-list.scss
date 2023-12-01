@@ -1,0 +1,13 @@
+.featured-list-wrap {
+  display: inline-block;
+  white-space: nowrap;
+  margin-left: -20px;
+  .featured-list-content {
+    display: inline-block;
+  }
+}
+.music-featured-item {
+  display: inline-block;
+  width: 160rpx;
+  margin-left: 20px;
+}
