@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/favor/favor",
+    "pages/index/index",
+    "pages/link/link",
+    "pages/order/order",
+    "pages/about/about"
+  ],
+  "usingComponents": {
+    "section-info": "/components/section-info/section-info"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "需要获取您的位置信息"
+    }
+  }, 
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#368",
+    "navigationBarTitleText": "RunE",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#368",
+    "backgroundColor": "",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/favor/favor",
+        "text": "喜欢"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "我的"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单"
+      }
+    ]
+  }  
+}

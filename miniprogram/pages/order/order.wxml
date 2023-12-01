@@ -1,0 +1,221 @@
+<!-- pages/order/order.wxml -->
+<text>pages/order/order.wxml</text>
+<block wx:for="{{userInfo}}" wx:key="*this">
+  <view>{{item}}</view>
+</block>
+<!-- decode是否解码  selectable是否可选中 要使用"{{false}}"来设置值 -->
+<text class="" selectable space="{{false}}" decode="{{true}}">Nice to have &gt;</text>
+<swiper indicator-dots="false" indicator-color="rgba(0,0,0,.3)" autoplay="true" current="0" interval="2000" duration="1000" circular="false" vertical="{{false}}">
+  <block wx:for="{{bannerList}}" wx:key="acm">
+    <swiper-item>
+      <image src="{{item.image}}" mode="widthFix"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<swiper indicator-dots="false" indicator-color="rgba(0,0,0,.3)" autoplay="true" current="0" interval="2000" duration="1000" circular="false">
+  <block wx:for="{{bannerList}}" wx:key="acm">
+    <swiper-item>
+      <image src="{{item.image}}"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- open-type属性 -->
+<button open-type="contact">点击打开会话</button>
+<!-- 之前获取用户信息的方式  现在已变成api wx.getUserProfile({desc: '...', success: (res) => {}}) -->
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo">获取用户信息</button>
+<!-- 现在获取用户信息方式 -->
+<button bindtap="getUserInfoNew">新的获取用户信息方式</button>
+<!-- 获取用户手机号码 -->
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取用户手机号码</button>
+<!-- 图片组件 一般用相对路径, 前缀加'/'即为绝对路径 image图片默认宽高: 320*240
+mode属性控制图片的显示内容大小和位置 常用aspectFill 按照320: 240等比填充, aspectFit 按图片比例填充 widthFix(最常用) 宽度拉满 高度自己计算完全显示出来 详情见开发者文档 -->
+<image class="" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+<!-- 选择本地图片  用image组件展示 -->
+<button bindtap="onchooseImage">请选择图片</button>
+<block wx:for="{{imageList}}" wx:key="*this">
+  <image class="" src="{{item}}" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+</block>
+<!-- 上下滚动 -->
+<scroll-view class="scroll-container" scroll-y scroll-x upper-threshold="50" lower-threshold="50" scroll-top="0" scroll-left="0" scroll-into-view="" scroll-with-animation="false" enable-back-to-top="false" bindscrolltoupper="" bindscrolltolower="" bindscroll="" enable-flex>
+  <view class="scroll-content" hover-class="none" wx:for="{{10}}" wx:key="*this">
+    <view class="scroll-item">"{{item}}"</view>
+  </view>
+</scroll-view>
+<input type="text" model:value="{{message}}" />
+<view>{{message}}</view>
+<!-- 在iphone6中  1rpx = 0.5px  1px = 2rpx 小程序中无rem vw -->
+<!-- 逻辑判断wx:if wx:elif wx:else hidden 为true隐藏 为false显示 -->
+<view class="" hover-class="none" hover-stop-propagation="false" wx:if="{{score > 90}}">优秀</view>
+<view class="" hover-class="none" hover-stop-propagation="false" wx:elif="{{score > 60}}">良好</view>
+<view class="" hover-class="none" hover-stop-propagation="false" wx:else>及格</view>
+<view class="" hover-class="none" hover-stop-propagation="false" hidden="{{!isShow}}">哈哈哈</view>
+<view class="" hover-class="none" hover-stop-propagation="false" hidden>哈哈哈nice</view>
+<button bindtap="onChangeShow">{{!isShow ? '显示': '隐藏'}}</button>
+<wxs module="format" src="../../utils/format.wxs">
+</wxs>
+<wxs module="bumber">
+  function formatNumber(num) {
+    return Number(num) + '.00';
+  }
+  module.exports = {
+    formatNumber: formatNumber,
+  }
+</wxs>
+<!-- 用wx:for便利循环时  使用block组件包裹 将item重命名 wx:for-item="book" -->
+<!-- wxs  wxs不能用es6语法 且得使用commonJs导入导出 两种引入方式 1. 在页面中使用wxs标签 2. 使用wxs后缀名文件 -->
+<view class="" hover-class="none" hover-stop-propagation="false">
+  {{format.formatPrice(876)}} + {{bumber.formatNumber('67')}}
+</view>
+<!-- target 触发事件的元素   currentTarget 处理事件的元素 即绑定事件的元素 -->
+<view class="" hover-class="none" hover-stop-propagation="false" bindtap="onChangeClick" data-target="i am currentTarget">
+  <!-- mark 小程序新增的语法 -->
+  <button data-target="i am target" mark:age="18">点击</button>
+</view>
+<block wx:for="{{tabList}}" wx:key="*this" wx:for-item="tab">
+  <view class="{{selectedKey === index ? 'active' : ' '}} " bindtap="onChangeTab" data-tab="{{index}}">
+  {{tab}}
+  </view>
+</block>
+<!-- bind /catch catch阻止事件进一步向下传递 -->
+<!-- button view等都是内置组件 -->
+<!-- 自定义组件 自定义组件中可以引入别的自定义组件/第三方组件, 需要在.json文件中usingComponents中注册   组件和页面不能以wx-为前缀起名字 可以在app.json中全局注册, 单页面不用注册就可使用, 但基本不这样做, 只在页面中注册 -->
+<section-info info="info" title="我是标题" content="我是内容" bind:titleClick="onTitleClickSection"/>
+<section-info class='tab-control'/>
+<section-footer tabsList="{{tabList}}" bind:clickGetSelectedTabKey="getSelectedTab"/>
+<button bindtap="getCurrentLocation">获取位置信息</button>
+<!-- 组件的样式细节
+1. 组件内的样式对外部样式的影响
+组件内有title类名, 页面内有自己的title类名, 组件内class样式只对组件内的节点生效, 对于引用组件的Page页面不生效
+组件内不能使用id选择器, 属性选择器, 标签选择器, 会对别的组件产生影响, 尽量使用类名去设置样式
+2. 外部样式对组件内样式的影响
+外部使用class样式, 只对外部class生效, 对组件内不生效  外部使用id选择器, 属性选择器不会对内部组件产生影响  外部使用标签选择器, 会对组件内产生影响
+3. 要想组件内部, 外部样式不隔离需要在组件的Component()中设置, options: { styleIsolation: "apply-shared",} apply-shared:外部影响内部, 内部不影响外部, shared: 两者互相影响, 实际开发中尽量隔离
+ -->
+
+ <!-- 组件之间的通信  见section-info.ts & wxml文件-->   
+<!-- 传递类名样式 externalClasses  -->
+<!-- 组件向外部传递  自定义事件 this.triggerEvent('触发事件名', 带参) -->
+<!-- 页面中调用组件方法 this.selectComponents('tab-control')  1.获取对应组件实例对象 2.进行调用  -->
+<!-- 插槽 小程序插槽不支持默认值  直接在组件中使用<slot></slot>就可在此位置显示 引入使用双标签, 在中间位置的组件即为插槽内容 默认显示可以自己操作 使用兄弟选择器, .content:empty + .default {display: block} -->
+<!-- 多个插槽即具名插槽 slot="left" slot="center" slot="right" name="left" name="center" name="right"  必须在Component()中设置 options: {
+  multipleSlots: true
+}-->
+
+<!-- behaviors 组件间代码共享 类似mixins 见section-info.ts wxml文件-->
+
+<!-- 生命周期 -->
+
+<!-- 网络请求 wx.request(object) url: 地址string data: 请求参数 header: object请求头不能设置Referer timeout: number超时时间 method: string请求方法 dataType: string返回的数据格式默认json responseType: string响应的数据类型 默认text-->
+<!-- 网络请求域名配置
+微信小程序需要事先设置通讯域名, 小程序只可以跟指定的域名等进行网络通信
+路径: 小程序登录后台 => 开发管理 => 开发设置 => 服务器域名  --> 
+<!-- 函数封装 wx.request封装 使用promise return new Promise((resolve, reject) => {
+  wx.request({
+    ...options,
+    success: (res) => {
+      resolve(res.data)
+    },
+    fail: reject,
+  })
+}) -->  
+<!-- 类封装 class TyReqInstance {
+  request(options) {
+ 
+ return new Promise((resolve, reject) => {
+      wx.request({
+        ...options,
+        success: (res) => {
+          resolve(res.data)
+        },
+        fail: reject,
+      })
+    })
+  },
+  get(options) {
+    return this.request({...options, method: 'get'})
+  },
+  post(options) {
+    return this.request({...options, method: 'post'})
+  }
+} -->
+
+<!-- 弹框 wx.showToast  wx.showLoading  属性: title icon duration mask success fail wx.showModal() content title success wx.showActionSheet() itemList -->
+
+<!-- 分享  onShareAppMessage onShareAppMessage() {
+  return {
+    title: '润鹅',
+    path: '/pages/favor/favor',
+    imageUrl: ''
+  }
+} -->
+
+<!-- 获取当前设备信息 wx.getSystemInfo(options) success fail 获取当前手机位置信息 wx.getLocation(options) success  在app.json中配置-->
+<!-- storage wx.setStorageSync('name', 'runer') wx.getStorageSync('name')  wx.removeStorageSync('name') wx.clearStorageSync()-->
+<!-- 异步: wx.setStorage({
+  key: 'name', 
+  data: [d, 4, 5, 6],
+  encrypt: true, // 加密
+  success: (res) => {
+    console.log(res);
+  }
+}) -->
+
+<!-- 页面跳转 1. navigator组件跳转(用得少)  2. wx API跳转
+wx.switchTab()跳转到tabBar页面 wx.relaunch()让应用程序重新启动 关闭所有页面(页面栈清空) 打开某一个页面(可以自己选择页面) wx.redirectTo()关闭当前页面, 打开某一个页面(可以自己选择)
+ wx.navigateTo()保留当前页面, 跳转到应用的某个页面 wx.navigateBack()关闭当前页面 返回上一页面或多级页面 -->
+ <!-- wx.navigateTo(options) {url events success fail complete } --> 
+ <!-- wx.navigateTo({
+  url: '/pages/favor/favor?name=tianyi&age=18', 带参数
+ }) 
+ 在跳转页面的onLoad函数中可以进行获取 onLoad(options) {
+  console.log(options.name, options.age)
+ }
+
+wx.navigateBack({
+  delta: 2, 返回层数
+})
+ -->
+
+ <!-- 返回时携带数据
+ 方式1: 
+ 1.返回导航
+ wx.navigateBack();
+ 2.给上一级的页面传递数据
+  2.1. 获取到上一个页面的实例
+   const pages = getCurrentPages();
+   const prePage = pages[pages.length - 2];
+   prePage.setData({message: '哈哈哈'}); 
+
+在onUnload中进行传递
+
+方式2: 回调events函数
+wx.navigateTo({
+  url: '/page/favor/favor',
+  events: {
+    backEvent(data) {
+      console.log(data);
+    },
+    getBackParams(data) {
+      console.log(data);
+    }
+  }
+})
+3.1 拿到eventChannel
+const eventChannel = this.getOpenerEventChannel();
+3.2 通过eventChannel对调函数
+eventChannel.emit('backEvent', {name: 'tianyi', age: '19'})
+ -->
+
+ <!-- 小程序登录解析  静默登录 身份唯一标识 openid更换手机验证openid验证 
+ unionid union联盟团队 微信不同产品之间的认证
+
+ 1. 在onLaunch中获取code   wx.login({
+  success: (res) => {
+    console.log(res.code)
+  }
+ })
+ 2. 将code发送给后端  后端使用appid appsecret(管理平台上有) code到微信接口服务换取openid, 储存在数据库
+ 3. 后端返回自定义登录态, 即返回token
+ 4. 前端将token存储到Storage中
+ 5. 发送请求时携带token, 后端对数据库中进行对比是否匹配
+ -->

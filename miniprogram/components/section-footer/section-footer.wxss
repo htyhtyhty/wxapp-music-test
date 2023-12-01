@@ -1,0 +1,4 @@
+/* components/section-footer/section-footer.wxss */
+.active {
+  color: #368;
+}

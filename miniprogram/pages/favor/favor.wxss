@@ -1,0 +1,17 @@
+.title {
+  color: pink;
+}
+.message {
+  font-size: 20px;
+  color: #258;
+}
+.counter {
+  font-size: 18px;
+  font-weight: 700;
+  color: pink;
+  text-align: center;
+}
+.button {
+  display: flex;
+  justify-content: space-between;
+}

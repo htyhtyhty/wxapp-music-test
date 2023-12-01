@@ -1,0 +1,7 @@
+<!--pages/about/about.wxml-->
+<text>pages/about/about.wxml</text>
+<view>
+  <block wx:for="{{listCount}}" wx:key="*this">
+    <view>列表数据: {{item}}</view>
+  </block>
+</view>
