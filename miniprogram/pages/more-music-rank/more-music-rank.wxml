@@ -1,0 +1,14 @@
+<block class="rank-list-wrap" wx:for="{{rankMusicList[category]}}" wx:key="index">
+  <view class="rank-wrap">
+    <view>{{index + 1}}</view>
+    <view class="rank-content">
+      <image wx:if="{{index < 3}}" class="rank-image" src="{{item.al.picUrl}}" mode="widthFix" />
+      <view class="rank-music-info" >
+        <view class="rank-music-name">{{item.name}}</view>
+        <view class="rank-music-author">
+          <view>{{item.ar[0].name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

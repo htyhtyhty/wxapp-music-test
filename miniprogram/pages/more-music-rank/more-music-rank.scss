@@ -1,0 +1,28 @@
+.rank-list-wrap {
+  margin-bottom: 20px;
+}
+.rank-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  .rank-image {
+    width: 40px;
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+}
+.rank-content {
+  display: flex;
+  align-items: center;
+  .rank-music-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px
+  }
+  .rank-music-author {
+    font-size: 12px;
+    color: rgb(173, 169, 169);
+  }
+}

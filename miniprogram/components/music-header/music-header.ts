@@ -8,6 +8,10 @@ Component({
     headerTitle: {
       type: String,
       value: '默认标题'
+    },
+    isShowMore: {
+      type: Boolean,
+      value: true
     }
   },
 
