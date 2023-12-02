@@ -40,7 +40,7 @@ export const getCategoryMusicList = async () => {
 // 获取歌曲详情
 export const getDetailMusicInfo = async (ids:number) => {
   return await musicRequest.get({
-    url: 'song/detail',
+    url: '/song/detail',
     data: {
       ids
     }

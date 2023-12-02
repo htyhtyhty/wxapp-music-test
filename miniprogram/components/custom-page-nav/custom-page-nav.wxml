@@ -1,0 +1,9 @@
+<view style="height: {{statusBarHeight}}px;"></view>
+<view class="nav-wrap">
+  <van-icon style="font-size: 14px; line-height: 14px;" name="arrow-left" bindtap="onClickBack" />
+  <view class="nav-content" style="top: {{15 + statusBarHeight}}px;">
+    <view class="{{currentPage ? 'active' : ''}}">歌曲</view>
+    <view class="nav-sx">|</view>
+    <view class="{{!currentPage ? 'active' : ''}}">歌词</view>
+  </view>
+</view>

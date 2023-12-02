@@ -1,0 +1,8 @@
+<custom-page-nav currentPage="{{currentPage}}"></custom-page-nav>
+<swiper bindchange="onSwiperChange">
+  <block wx:for="{{2}}"  wx:key="index">
+  <swiper-item>
+    <view>{{item}}</view>
+  </swiper-item>
+  </block>
+</swiper>

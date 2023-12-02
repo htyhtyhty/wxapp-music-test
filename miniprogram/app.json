@@ -4,7 +4,8 @@
     "pages/main-video/main-video",
     "pages/detail-video/detail-video",
     "pages/detail-search/detail-search",
-    "pages/more-music-rank/more-music-rank"
+    "pages/more-music-rank/more-music-rank",
+    "pages/player-music/player-music"
   ],
   "window": {
     "backgroundTextStyle": "dark",

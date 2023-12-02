@@ -8,7 +8,12 @@ Page({
     category: '',
     rankMusicList: {},
   },
-
+  onClickPlayer(option) {
+    console.log(option, 'option')
+    wx.navigateTo({
+      url: `/pages/player-music/player-music?ids=${option.currentTarget.dataset.id}`
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -24,7 +29,6 @@ Page({
       })
     });
   },
-
   /**
    * 生命周期函数--监听页面卸载
    */

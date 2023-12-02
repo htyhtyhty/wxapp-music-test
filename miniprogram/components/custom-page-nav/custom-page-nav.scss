@@ -1,0 +1,14 @@
+.nav-wrap {
+  display: flex;
+  height: 44px;
+  .nav-content {
+    width: 200rpx;
+    position: absolute;
+    font-size: 14px;
+    left: calc(50% - 100rpx);
+    display: flex;
+  }
+}
+.active {
+  color: #ccc;
+}

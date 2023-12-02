@@ -34,7 +34,6 @@ Component({
    */
   methods: {
     onClickGetRank(e) {
-      console.log(e.currentTarget.dataset.category, 'e')
       wx.navigateTo({
         url: `/pages/more-music-rank/more-music-rank?category=${e.currentTarget.dataset.category}`
       })
