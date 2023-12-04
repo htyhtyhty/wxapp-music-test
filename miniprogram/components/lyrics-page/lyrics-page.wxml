@@ -1,0 +1,9 @@
+<view class="lyrics-title">
+<view class="lyrics-name">{{songInfo.name}}</view>
+<view class="lyrics-author">{{songInfo.ar[0].name}}</view>
+</view>
+<scroll-view class="lyrics-scroll" scroll-y scroll-with-animation 	scroll-top="{{scrollTop}}">
+  <block class="lyrics-wrap" wx:for="{{parseLyrics}}" wx:key="index" style="z-index: 99;">
+  <view class="lyrics-item {{currentLyricsIndex === index ? 'active': ''}}" style="z-index: 99; ">{{item.text}}</view>
+</block>
+</scroll-view>

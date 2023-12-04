@@ -1,1 +1,55 @@
-/* pages/player-music/player-music.wxss */
+@keyframes rotate{
+	0%{
+		transform: rotateZ(0deg);/*从0度开始*/
+	}
+	100%{
+		transform: rotateZ(360deg);/*360度结束*/
+	}
+}
+.player-page-wrap {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  .player-bg {
+    // z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(8px);
+  }
+  .player-swiper-image {
+    display: block;
+    width: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 120px auto 40px auto;
+  }
+  .image-rotate {
+    animation: rotate 8s linear infinite;
+  }
+}
+.song-name {
+  // padding: 4px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+.song-author {
+  font-size: 14px;
+  color: rgb(173, 169, 169);
+}
+.player-icon-wrap {
+  display: flex;
+  justify-content: space-between;
+  .player-setting-icon {
+    width: 40px;
+  }
+}
+.song-time-length {
+  display: flex;
+  justify-content: space-between;
+}

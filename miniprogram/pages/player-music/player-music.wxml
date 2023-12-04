@@ -1,8 +1,30 @@
+<wxs src="/utils/format.wxs" module="format"></wxs>
 <custom-page-nav currentPage="{{currentPage}}"></custom-page-nav>
-<swiper bindchange="onSwiperChange">
-  <block wx:for="{{2}}"  wx:key="index">
-  <swiper-item>
-    <view>{{item}}</view>
+<view class="player-page-wrap" style="background-image: url({{songInfo.al.picUrl}});">
+<view class="player-bg"></view>
+  <swiper class="player-swiper" bindchange="onSwiperChange" style="height: {{playerSwiperHeight}}px;">
+  <swiper-item style="z-index: 99;">
+    <image class="player-swiper-image {{!isPause ? 'image-rotate' : ''}}" src="{{songInfo.al.picUrl}}" mode="widthFix"/>
+    <view class="song-name">{{songInfo.name}}</view>
+    <view class="song-author">{{songInfo.ar[0].name}}</view>
+    <view class="song-player-wrap">
+      <slider bindchange="onSliderChange" value="{{sliderValue}}" block-size="14" backgroundColor="rgb(173, 169, 169)" activeColor="#fff"/>
+      <view class="song-time-length">
+        <view>{{format.formatVideoDuration(currentPlayTime)}}</view>
+        <view>{{format.formatVideoDuration(songInfo.dt)}}</view>
+      </view>
+      <view class="player-icon-wrap">
+      <image class="player-setting-icon" src="/assets/顺序播放.png" mode="widthFix"/>
+      <image class="player-setting-icon" src="/assets/上一首.png" mode="widthFix"/>
+      <image style="width: 50px;" src="{{statusIcon}}" mode="widthFix" bindtap="onChangePlayStatus"/>
+      <image class="player-setting-icon"src="/assets/下一首.png" mode="widthFix"/>
+      <image class="player-setting-icon"src="/assets/下一首.png" mode="widthFix"/>
+      </view>
+    </view>
   </swiper-item>
-  </block>
+  <swiper-item style="z-index: 99;">
+    <lyrics-page songInfo="{{songInfo}}" parseLyrics="{{parseLyrics}}" currentLyricsIndex="{{currentLyricsIndex}}" 
+    scrollTop="{{scrollTop}}"/>
+  </swiper-item>
 </swiper>
+</view>

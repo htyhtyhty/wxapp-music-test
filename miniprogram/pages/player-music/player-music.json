@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "custom-page-nav": "/components/custom-page-nav/custom-page-nav"
+    "custom-page-nav": "/components/custom-page-nav/custom-page-nav",
+    "lyrics-page": "/components/lyrics-page/lyrics-page"
   },
   "navigationStyle": "custom",
   "navigationBarTextStyle": "black"

@@ -11,6 +11,13 @@
         {
           "name": "播放页面",
           "pathName": "pages/player-music/player-music",
+          "query": "ids=2102067411",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "播放页面",
+          "pathName": "pages/player-music/player-music",
           "query": "",
           "launchMode": "default",
           "scene": null
